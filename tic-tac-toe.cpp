@@ -5,7 +5,7 @@ using namespace std;
 
 class Game
 {
-    int board[3][3] = {{0, 0}, {0, 0}, {0, 0}};
+    int board[3][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
     string playerOne, playerTwo;
 
 public:
@@ -41,11 +41,11 @@ public:
         {
             if (player == playerOne)
             {
-                board[col][row] = 1;
+                board[row][col] = 1;
             }
             if (player == playerTwo)
             {
-                board[col][row] = 2;
+                board[row][col] = 2;
             }
         }
         return;
@@ -66,6 +66,22 @@ public:
         }
         return "nowin horizontal";
     }
+    string checkVertical(string player) 
+    {
+        int numPlayer = 2;
+        if (player == playerOne) {
+            numPlayer ==1 ;
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            if (((board[0][i] == board[1][i]) && (board[2][i] == board[0][i])) && (board[0][i] != 0))
+            {
+                return "win vertical";
+            }
+        }
+        return "nowin vertical";
+
+    }
 };
 
 int main()
@@ -83,9 +99,10 @@ int main()
     mainGame.setPlayers(playerOne, playerTwo);
     mainGame.printBoard();
     cout << "\nMove set by Player 1\n";
-    mainGame.setMove(playerOne, 2, 2);
-    mainGame.setMove(playerOne, 2, 1);
     mainGame.setMove(playerOne, 2, 0);
+    mainGame.setMove(playerOne, 2, 1);
+    mainGame.setMove(playerOne, 2, 2);
     mainGame.printBoard();
     cout << "\n" + mainGame.checkHorizontal(playerOne) + "\n";
+    cout << "\n" + mainGame.checkVertical(playerOne) + "\n";
 }

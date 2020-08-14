@@ -66,11 +66,12 @@ public:
         }
         return "nowin horizontal";
     }
-    string checkVertical(string player) 
+    string checkVertical(string player)
     {
         int numPlayer = 2;
-        if (player == playerOne) {
-            numPlayer ==1 ;
+        if (player == playerOne)
+        {
+            numPlayer == 1;
         }
         for (int i = 0; i < 3; i++)
         {
@@ -80,7 +81,6 @@ public:
             }
         }
         return "nowin vertical";
-
     }
 };
 

@@ -1,3 +1,4 @@
 # tic-tac-toe-cpp
 Getting familiar with C++ by making tic tac toe for 2 players. 
 - Will add peer-peer connection
+Discontinued as of now, may come back later
